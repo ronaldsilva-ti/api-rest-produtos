@@ -10,8 +10,15 @@ router.get('/',( req,res,next ) => {
 
 // CADASTRAR PEDIDOS
 router.post('/',( req,res,next ) => {
-    res.status(200).send({
-        mensagem:'Faz um pedido'
+
+    const pedido = {
+        id_produto:req.body.id_produto,
+        quantidade:req.body.quantidade
+    };
+
+    res.status(201).send({
+        mensagem:'O pedido foi criado',
+        pedidoCriado:pedido
     });
 });
 
@@ -30,7 +37,7 @@ router.get('/:id_pedido',( req,res,next ) => {
 // APAGAR PEDIDO
 router.delete('/',( req,res,next ) => {
     res.status(200).send({
-        mensagem:'Pedido excluido'
+        mensagem:'Pedido excluido!'
     });
 });
 
